@@ -48,15 +48,15 @@ public class Main {
 
             editTransactions(scanner, transactions);
 
-            System.out.println("Введите путь для сохранения измененного файла:");
+            System.out.println("Enter path to save the file:");
             String savePath = scanner.nextLine();
             TransactionFileWriter fileWriter = TransactionFileWriterFactory.getFileWriter(savePath);
             fileWriter.write(savePath, transactions);
 
-            System.out.println("Транзакции успешно сохранены.");
+            System.out.println("Saved successfully");
 
         } catch (IOException e) {
-            System.err.println("Произошла ошибка: " + e.getMessage());
+            System.err.println("An error occurred: " + e.getMessage());
         }
     }
 
@@ -140,13 +140,13 @@ public class Main {
         Transaction transaction = new Transaction();
         System.out.println("Creating a transaction");
 
-        System.out.println("card number of sender:");
+        System.out.println("Card number of sender:");
         String senderCardNumber = scanner.nextLine();
         transaction.setSenderCardNumber(senderCardNumber);
 
         String receiverCardNumber;
         do {
-            System.out.println("card number of receiver:");
+            System.out.println("Card number of receiver:");
             receiverCardNumber = scanner.nextLine();
             if (receiverCardNumber.equals(senderCardNumber)) {
                 System.out.println("Card numbers are the same. Try again.");
